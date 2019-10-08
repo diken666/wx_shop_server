@@ -1,13 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let testRouter = require('./routes/test');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,8 +21,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  name: 'isFirst', // 这里是cookie的name，默认是connect.sid
+  secret: 'my_session_secret', // 建议使用 128 个字符的随机字符串
+  resave: true,  // 在一次会话中无论是否session被改变都会进行强制的储存
+  rolling: true, // 在每次会话中的响应中都覆写一次cookie,重置倒计时
+  saveUninitialized: true, // 将一个新创建还未修改的会话进行储存,默认为true
+  cookie: { maxAge: 60 * 60 * 1000, httpOnly: true }
+}));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/test', testRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
