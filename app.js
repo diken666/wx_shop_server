@@ -8,6 +8,8 @@ const session = require('express-session');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let testRouter = require('./routes/test');
+let userInfoRouter = require('./routes/userInfo');
+let loginRouter = require('./routes/login');
 
 let app = express();
 
@@ -27,12 +29,14 @@ app.use(session({
   resave: true,  // 在一次会话中无论是否session被改变都会进行强制的储存
   rolling: true, // 在每次会话中的响应中都覆写一次cookie,重置倒计时
   saveUninitialized: true, // 将一个新创建还未修改的会话进行储存,默认为true
-  cookie: { maxAge: 60 * 60 * 1000, httpOnly: true }
+  cookie: { expires: new Date(Date.now() + 60*60*1000), httpOnly: true }
 }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter);
+app.use('/userInfo', userInfoRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

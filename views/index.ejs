@@ -7,5 +7,19 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <button id="btn">登录</button>
+    <form action="/login" style="display: none" id="form" method="post">
+      <input name="id" type="text" value="111">
+      <input name='psw' type="text" value="2222">
+      <button id="sub" type="submit"></button>
+    </form>
   </body>
+
+  <script src="./js/md5.min.js"></script>
+  <script>
+    document.querySelector('#btn').addEventListener('click', ()=> {
+      document.querySelector('#sub').click()
+      console.log("click")
+    })
+  </script>
 </html>
