@@ -2,6 +2,7 @@
 微信小程序商店服务端代码
 1. [数据库连接时出现的错误及解决方案](https://blog.csdn.net/m_amazing/article/details/84313789)
 2. 数据表，[样例](https://www.jianshu.com/p/91cc254cbe1b)
+
  - 用户信息表 user_info  
  
 >|属性名|字段名|类型|要求  
@@ -9,12 +10,12 @@
 >|userId|用户id|字符串|主键
 >|userName|用户名|字符串|非空
 >|password|密码|字符串|非空
->|telPhone|电话|字符串|非空
+>|telPhone|电话|字符串|
 >|email|邮箱|字符串|
 >|address|默认收货地址|字符串|
 >|time|注册时间|字符串|非空
 
- - 地址表 address
+ - 地址表 address_info
  
 >|属性名|字段名|类型|要求  
 >|---|---|---|---|  
