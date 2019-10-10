@@ -3,6 +3,7 @@ CREATE TABLE `mydb`.`user_info` (
   `userId` CHAR(20) NOT NULL,
   `userName` VARCHAR(30) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
+  `userImg` VARCHAR(100) NULL,
   `telPhone` VARCHAR(30) NULL,
   `email` VARCHAR(45) NULL,
   `address` VARCHAR(100) NULL,
