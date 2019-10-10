@@ -10,6 +10,7 @@
 >|userId|用户id|字符串|主键
 >|userName|用户名|字符串|非空
 >|password|密码|字符串|非空
+>|userImg|用户头像|字符串|
 >|telPhone|电话|字符串|
 >|email|邮箱|字符串|
 >|address|默认收货地址|字符串|
