@@ -1,13 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../db/dbConnect');
+const sql = require('../sql/test');
 
 router.get('/', (req, res)=> {
 
     if (req.cookies.userName) {
-        res.json({
-            state: "ok",
-            msg: "请求成功"
-        })
+        db.query(sql.getTestInfo, [], (err, response) =>{
+            if (err) {
+                throw Error(err)
+            } else {
+                res.json({
+                    state: "ok",
+                    msg: "请求成功",
+                    data: response
+                })
+            }
+        });
     } else {
         res.json({
             state: "error",

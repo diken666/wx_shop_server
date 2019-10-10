@@ -1,7 +1,7 @@
 # wx_shop_server
 微信小程序商店服务端代码
-
-1. 数据表，[样例](https://www.jianshu.com/p/91cc254cbe1b)
+1. [数据库连接时出现的错误及解决方案](https://blog.csdn.net/m_amazing/article/details/84313789)
+2. 数据表，[样例](https://www.jianshu.com/p/91cc254cbe1b)
  - 用户信息表 user_info  
  
 >|属性名|字段名|类型|要求  
