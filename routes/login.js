@@ -16,11 +16,11 @@ router.post('/', (req, res) =>{
     if (id && psw) {
         db.query(sql.selectUser(id), [], (err, response) => {
             if (err) {
-                throw Error(err)
+                throw Error(err);
             } else {
                 if (response.length === 1) {
                     if (response[0].password === psw) {
-                        res.cookie('userId', id, { expires: new Date(Date.now() + 60*60*1000), singed: true, httpOnly: true});
+                        res.cookie('userId', id, { expires: new Date(Date.now() + 60 * 60 * 1000), singed: true, httpOnly: true});
                         res.json({
                             state: "ok",
                             msg: "请求成功",
