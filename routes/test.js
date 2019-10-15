@@ -24,7 +24,6 @@ router.get('/', (req, res)=> {
         })
     }
 
-
     // if(req.session.isFirs && req.cookies.isFirs) {
     //     console.log(req.session);
     //     console.log(req.cookies);
