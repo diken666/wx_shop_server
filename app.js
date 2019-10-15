@@ -11,6 +11,8 @@ let testRouter = require('./routes/test');
 let userInfoRouter = require('./routes/userInfo');
 let loginRouter = require('./routes/login');
 let proInfoRouter = require('./routes/getProInfo');
+let userLoginRouter = require('./routes/userLogin');
+let captchaRouter = require('./routes/captcha');
 
 let app = express();
 
@@ -39,6 +41,9 @@ app.use('/test', testRouter);
 app.use('/userInfo', userInfoRouter);
 app.use('/login', loginRouter);
 app.use('/proInfo', proInfoRouter);
+app.use('/userLogin', userLoginRouter);
+app.use('/captcha', captchaRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
